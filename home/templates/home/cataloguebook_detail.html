@@ -1,0 +1,24 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block ChangingContent %}
+
+<h2>Detalles del libro:</h2>
+<hr>
+<p><strong>Libro:</strong> {{ object.name }}</p>
+<p><strong>Género:</strong> {{ object.genre }}</p>
+<p><strong>Autor:</strong> {{ object.author }}</p>
+<p><strong>Fecha de publicación:</strong> {{ object.publication_date }}</p>
+<h4>Descripción:</h4>
+<p>{{ object.description }}</p>
+<a class="btn btn-warning " href="{% url 'home:home-list' %}">Regresar a los libros del catálogo</a>
+<!-- {{home}} -->
+        
+{% if user.is_superuser %}
+|
+<a class="btn btn-info btn-sm" href="{% url 'home:home-update' object.id %}">Editar el contenido</a>
+|
+<a class="btn btn-danger btn-sm" href="{% url 'home:home-delete' object.id %}">Borrar el libro</a>
+{% endif %}
+
+{% endblock %}
+

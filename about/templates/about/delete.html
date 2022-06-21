@@ -1,0 +1,16 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block ChangingContent %}
+
+<h2>Delete about</h2>
+<hr></hr>
+
+<p>¿Delete About: {{ about.nombre }}?</p>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <input class="btn btn-warning" type="submit" value="Si, eliminar.">
+    <a class="btn btn-primary" href="{% url 'about:about_list' %}" >Cancelar</a>
+</form>
+
+{% endblock %}

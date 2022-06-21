@@ -1,0 +1,27 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block ChangingContent %}
+
+<h2>Últimas calificaciones en el sitio:</h2>
+{% if user.is_authenticated %}
+<a class="card_custom" href="{% url 'rate:rate-add' %}">¡Califica un libro!</a>
+{% endif %}
+<hr></hr>
+<ul>
+    {% for rate in booktorate_list %}
+    <li>
+        {{rate}}
+        (
+            <a href="{% url 'rate:rate-detail' rate.id %}">Detalles de la reseña</a>
+        {% if user.is_authenticated %}
+        |
+        <a href="{% url 'rate:rate-update' rate.id %}">Editar la reseña</a>
+        |
+        <a href="{% url 'rate:rate-delete' rate.id %}">Borrar la reseña</a>
+        {% endif %}
+        )
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

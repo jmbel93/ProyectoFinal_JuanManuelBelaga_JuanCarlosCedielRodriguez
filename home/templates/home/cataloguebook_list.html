@@ -1,0 +1,68 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block ChangingContent %}
+
+<h2>¡Observa nuestro catálogo de libros online!</h2>
+{% if user.is_authenticated %}
+<div class="card">
+    <div class="card-body">   
+        <div class="row">
+            <div class="col-6">
+                <h3>¡Bienvenido {{ user.username }}!</h3>
+            </div>
+            <div class="col-6">
+                {% if user.is_superuser %}
+                    <a class="btn btn-primary" href="{% url 'home:home-add' %}"><i class="fas fa-plus"></i> Introducir un nuevo libro en el catálogo</a>
+                {% endif %}
+            </div>
+        </div> 
+    </div>
+</div>
+{% endif %}
+
+<hr>
+
+<form action="search" method="GET">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" name="text_search" id="text_search" placeholder="Buscar un libro en nuestro catálogo" aria-label="Buscar un libro en nuestro catálogo" aria-describedby="button-addon2">
+        <input class="btn btn-outline-secondary" type="submit" value="¡Buscar!">
+    </div>
+</form>
+
+{% if book_sell %}
+    {% for book in book_sell %}
+    
+    <div class="post-preview">
+        <a href="{% url 'home:home-detail' book.id %}">
+            <h2 class="post-title">{{book.name}}</h2>
+            <h3 class="post-subtitle">Genere: {{book.genre}}</h3>
+        </a>
+        <p class="post-meta">
+            Autor by
+            <a href="#!">{{book.author}}</a>
+            on publicate {{book.publication_date}}
+        </p>
+    </div>
+    <hr>
+    {% endfor %}
+{% endif %}
+
+<hr>
+    {% for home in cataloguebook_list %}
+    <div class="post-preview">
+        <a href="{% url 'home:home-detail' home.id %}">
+            <h2 class="post-title">{{home.name}}</h2>
+            <h3 class="post-subtitle">Genere: {{home.genre}}</h3>
+        </a>
+        <p class="post-meta">
+            Autor by
+            <a href="#!">{{home.author}}</a>
+            on publicate {{home.publication_date}}
+        </p>
+    </div>
+    <hr>
+    {% endfor %}
+
+
+
+{% endblock %}

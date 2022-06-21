@@ -1,0 +1,15 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block ChangingContent %}
+
+<h2>Detalles del libro calificado:</h2>
+<hr></hr>
+<p><h3>libro: {{ object.name }}</h3></p>
+<p><h4>Género: {{ object.genre }}</h4></p>
+<p><h4>Autor: {{ object.author }}</h4></p>
+<p><h4>Fecha de la reseña: {{ object.rate_date }}</h4></p>
+<p><h4>Autor de la reseña: {{ object.uploading_user }}</h4></p>
+<h4>Calificación:</h4>
+<p><textarea readonly rows="7" cols="90" >{{ object.description }}</textarea></p>
+<p><a class="btn2 btn-primary" href="{% url 'rate:rate-list' %}">Regresar a los libros calificados</a></p>
+{% endblock %}

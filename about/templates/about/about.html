@@ -1,0 +1,44 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block ChangingContent %}
+
+<div class="row">
+    <h2>{{ title_views }}</h2>
+</div>
+
+<div class="row">
+    {% for c in object_list %}
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="post-preview">
+                    
+                    <p class="text-center">
+                        <img src="../media/{{c.avatar}}" alt="no foto" style="width:50%">
+                    </p>
+                    <p><strong class="post-subtitle">Descripcion:</strong> </p>
+                    <p> {{c.descripcion}}</p>
+                    <p><h2 class="post-title">{{c.nombre}}</h2></p>
+                    <p class="post-meta">
+                        Autor by
+                        {{c.user_creation}}
+                        on publicate {{c.date_creation}}
+                    </p>
+                    {% if user.is_superuser %}
+                    <a href="{% url 'about:about_edit' c.id %}" class="btn btn-primary">Edd About</a>
+                    <a href="{% url 'about:about_delete' c.id %}" class="btn btn-danger">Borrar el libro</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% if user.is_superuser %}
+<div class="card">
+    <div class="card-body">
+        <a class="btn btn-primary" href="{% url 'about:about_add' %}"><i class="fas fa-plus"></i> Add About</a>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

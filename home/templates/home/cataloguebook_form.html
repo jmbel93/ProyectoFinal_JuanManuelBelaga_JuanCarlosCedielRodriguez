@@ -1,0 +1,14 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block ChangingContent %}
+
+<h2>Modifica el nombre del libro:</h2>
+<hr></hr>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="btn btn-primary" value="Guardar modificación" />
+</form>
+
+{% endblock %}
