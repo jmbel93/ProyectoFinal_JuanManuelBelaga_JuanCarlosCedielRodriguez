@@ -9,6 +9,7 @@ from home.models import CatalogueBook
 from django.shortcuts import render
 from django.db.models import Q
 from user.models import Avatar
+from message.models import Comentario
 
 class CatalogueBookListView(ListView):
     model = CatalogueBook
@@ -18,7 +19,7 @@ class CatalogueBookListView(ListView):
 class CatalogueBookDetailView(DetailView):
     model = CatalogueBook
     template_name = "home/cataloguebook_detail.html"
-    fields = ['name', 'genre', 'publication_date', 'author', 'description']
+    fields = ['name', 'genre', 'publication_date', 'author', 'description', 'comment']
 
 
 class CatalogueBookCreateView(LoginRequiredMixin, CreateView):

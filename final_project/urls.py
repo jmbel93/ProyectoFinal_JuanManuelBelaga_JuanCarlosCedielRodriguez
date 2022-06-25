@@ -24,7 +24,7 @@ urlpatterns = [
     path('accounts/', include('user.urls')),
     path('pages/', include('rate.urls')),
     
-    path('message/', include('message.urls')),
+    path('comment/', include('message.urls')),
     path('about/', include('about.urls')),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

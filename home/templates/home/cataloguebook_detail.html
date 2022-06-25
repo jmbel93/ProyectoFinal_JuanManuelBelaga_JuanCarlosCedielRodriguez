@@ -10,6 +10,7 @@
 <p><strong>Fecha de publicación:</strong> {{ object.publication_date }}</p>
 <h4>Descripción:</h4>
 <p>{{ object.description }}</p>
+
 <a class="btn btn-warning " href="{% url 'home:home-list' %}">Regresar a los libros del catálogo</a>
 <!-- {{home}} -->
         
@@ -19,6 +20,10 @@
 |
 <a class="btn btn-danger btn-sm" href="{% url 'home:home-delete' object.id %}">Borrar el libro</a>
 {% endif %}
+
+<div>
+    <a class="btn btn-danger btn-sm" href="{% url 'comment:comment-list' %}">¡Mira nuestros comentarios!</a>
+</div>
 
 {% endblock %}
 

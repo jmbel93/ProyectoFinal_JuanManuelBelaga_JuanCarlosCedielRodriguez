@@ -1,0 +1,15 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block ChangingContent %}
+
+<h2>Detalles del comentario:</h2>
+<hr></hr>
+<p><h3>Título del comentario: {{ object.titulo_del_comentario }}</h3></p>
+<p><h4>Fecha del comentario: {{ object.comment_date }}</h4></p>
+<p><h4>Autor del comentario: {{ object.autor_del_comentario }}</h4></p>
+<p><h4>Libro comentado: {{ object.libro_comentado }}</h4></p>
+
+<h4>Comentario:</h4>
+<p><textarea readonly rows="7" cols="90" >{{ object.comentario }}</textarea></p>
+<p><a class="btn2 btn-primary" href="{% url 'comment:comment-list' %}">Regresar al portal de comentarios</a></p>
+{% endblock %}

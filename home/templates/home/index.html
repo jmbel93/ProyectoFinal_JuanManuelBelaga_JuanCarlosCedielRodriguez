@@ -32,7 +32,7 @@
                         
                         {% if user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'user:user-update' %}">Profile</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'message:message-list' %}">Mensajería</a></li>                        
+                       
                         <a class="btn btn-primary  btn-sm" href="{% url 'user:user-logout' %}"><button class="btn btn"> Cerrar Sesión</button></a>
                         {% else %}
                         <a class="btn btn-primary  btn-sm" href="{% url 'user:user-login' %}"><button class="btn btn">  Iniciar Sesión</button></a>
