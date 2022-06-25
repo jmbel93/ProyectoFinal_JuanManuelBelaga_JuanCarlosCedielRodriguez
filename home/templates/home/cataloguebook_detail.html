@@ -9,7 +9,7 @@
 <p><strong>Autor:</strong> {{ object.author }}</p>
 <p><strong>Fecha de publicación:</strong> {{ object.publication_date }}</p>
 <h4>Descripción:</h4>
-<p>{{ object.description }}</p>
+<p>{{ object.description | safe}}</p>
 
 <a class="btn btn-warning " href="{% url 'home:home-list' %}">Regresar a los libros del catálogo</a>
 <!-- {{home}} -->

@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 
 
@@ -7,7 +8,7 @@ class CatalogueBook(models.Model):
     genre = models.CharField(max_length=40)
     author = models.CharField(max_length=40)
     publication_date = models.DateField()
-    description = models.TextField(blank = True, null=True)
+    description = RichTextField(blank = True, null=True)
   
 
 

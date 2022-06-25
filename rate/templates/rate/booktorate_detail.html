@@ -10,6 +10,6 @@
 <p><h4>Fecha de la reseña: {{ object.rate_date }}</h4></p>
 <p><h4>Autor de la reseña: {{ object.uploading_user }}</h4></p>
 <h4>Calificación:</h4>
-<p><textarea readonly rows="7" cols="90" >{{ object.description }}</textarea></p>
+<p>{{ object.description | safe }}</p>
 <p><a class="btn2 btn-primary" href="{% url 'rate:rate-list' %}">Regresar a los libros calificados</a></p>
 {% endblock %}
