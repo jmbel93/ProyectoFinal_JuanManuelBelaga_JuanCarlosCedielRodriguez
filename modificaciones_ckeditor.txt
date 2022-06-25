@@ -1,0 +1,3 @@
+Nuevos cambios:
+    -Ahora toda creación y edición de campos previamente TextField se realiza a través de un editor de texto avanzado y en los detalles
+     figura lo creado a través del editor de texto avanzado.
