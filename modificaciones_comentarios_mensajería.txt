@@ -1,0 +1,16 @@
+Eliminados:
+    -portal mensajería
+Agregados:
+    -sistema de comentarios
+Modificaciones:
+    -la rate_date de las calificaciones ahora tiene -datetime.now(), haciendo que muestren la fecha y hora en la que se hizo la 
+     calificación
+Características del nuevo sistema de comentarios:
+    -nueva url accesible a través del detalle de los libros del catálogo y a ojos de usuarios registrados como no registrados
+    -un CRUD propio en la url para que usuarios no registrados puedan ver los comentarios y los usuarios registrados puedan 
+     adicionalmente crear, editar y borrar comentarios
+    -el modelo de comentarios posee una fecha datetime.now() para la fecha en la que fueron hechos, un foreignkey al usuario para que
+     figure qué usuario realizó el comentario y un foreignkey al libro para que, a diferencia de las calificaciones que pueden ser de 
+     cualquier libro, el comentario haga referencia a un libro específico del catálogo
+    -un __str__ con la variable del foreignkey de los libros para que el usuario pueda ver de qué libro es el comentario que va a leer
+
