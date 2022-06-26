@@ -1,0 +1,22 @@
+Testeos en la aplicación home:
+    -testeo en el campo publication_date (DateField) del modelo CatalogueBook:
+        -primer testeo: publication_date = "1933-10-14"
+         la fecha está en el formato correcto; se espera un resultado sin errores.
+         resultado: OK
+         el testeo da el resultado esperado.
+        -segundo testeo: publication_date = "19-1011-14"
+         la fecha no está en el formato correcto; se espera un resultado con errores.
+         resultado: FAILED (errors=1)
+         el testeo da el resultado esperado
+Testeos en la aplicación message:
+    -testeo en el campo autor_del_comentario (ForeignKey(User)) del modelo Comentario:
+        -primer testeo: autor_del_comentario = "hola"
+         hola no tiene relación con user; se espera un resultado con errores.
+         resultado: FAILED (errors=1)
+         el testeo da el resultado esperado
+    -testeo en el campo titulo_del_comentario (CharField) del modelo Comentario:
+        -primer testeo: titulo_del_comentario = "hola"
+         hola es un string; se espera un resultado sin errores.
+         resultado: FAILED (errors=1)
+         el testeo no da el resultado esperado
+         razón del error: python manage.py test le asigna el valor 1 a los campos con foreignkey y provoca un error.
