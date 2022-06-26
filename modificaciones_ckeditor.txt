@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 Nuevos cambios:
     -Ahora toda creación y edición de campos previamente TextField se realiza a través de un editor de texto avanzado y en los detalles
+=======
+Nuevos cambios:
+    -Ahora toda creación y edición de campos previamente TextField se realiza a través de un editor de texto avanzado y en los detalles
+>>>>>>> 89d4b4c73c86faf955ddddf3b533b84c9acd0d62
      figura lo creado a través del editor de texto avanzado.
