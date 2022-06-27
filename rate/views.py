@@ -21,13 +21,13 @@ class BookToRateDetailView(DetailView):
 class BookToRateCreateView(LoginRequiredMixin, CreateView):
     model = BookToRate
     success_url = reverse_lazy('rate:rate-list')
-    fields = ['name', 'genre', 'rate_date', 'author', 'uploading_user', 'description']
+    fields = ['name', 'genre', 'author', 'uploading_user', 'description']
 
 
 class BookToRateUpdateView(LoginRequiredMixin, UpdateView):
     model = BookToRate
     success_url = reverse_lazy('rate:rate-list')
-    fields = ['name', 'genre', 'rate_date', 'author', 'uploading_user', 'description']
+    fields = ['name', 'genre', 'author', 'uploading_user', 'description']
 
 
 class BookToRateDeleteView(LoginRequiredMixin, DeleteView):
