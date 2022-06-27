@@ -26,7 +26,7 @@
                     </p>
                     {% if user.is_superuser %}
                     <a href="{% url 'about:about_edit' c.id %}" class="btn btn-primary">Edd About</a>
-                    <a href="{% url 'about:about_delete' c.id %}" class="btn btn-danger">Borrar el libro</a>
+                    <a href="{% url 'about:about_delete' c.id %}" class="btn btn-danger">Borrar About</a>
                     {% endif %}
                 </div>
             </div>

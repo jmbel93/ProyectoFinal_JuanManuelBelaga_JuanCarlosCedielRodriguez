@@ -4,20 +4,19 @@
 
 <h2>Comentarios creados:</h2>
 {% if user.is_authenticated %}
-<a class="card_custom" href="{% url 'comment:comment-add' %}">¡Crea un comentario nuevo!</a>
+<a class="btn btn-primary " href="{% url 'comment:comment-add' %}"><i class="fas fa-plus"></i> ¡Crea un comentario nuevo!</a>
 {% endif %}
 <hr></hr>
 <ul>
     {% for comment in comentario_list %}
     <li>
-        {{comment}}
+        <a href="{% url 'comment:comment-detail' comment.id %}"> {{comment}}</a>
         (
-            <a href="{% url 'comment:comment-detail' comment.id %}">Detalles del comentario</a>
         {% if user.is_authenticated %}
         |
-        <a href="{% url 'comment:comment-update' comment.id %}">Editar el comentario</a>
+        <a class="btn btn-warning btn-sm" href="{% url 'comment:comment-update' comment.id %}">Editar el comentario</a>
         |
-        <a href="{% url 'comment:comment-delete' comment.id %}">Borrar el comentario</a>
+        <a class="btn btn-danger btn-sm" href="{% url 'comment:comment-delete' comment.id %}">Borrar el comentario</a>
         {% endif %}
         )
     </li>

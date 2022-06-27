@@ -4,6 +4,7 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import CatalogueBookForm
 
 from home.models import CatalogueBook
 from django.shortcuts import render
@@ -19,19 +20,19 @@ class CatalogueBookListView(ListView):
 class CatalogueBookDetailView(DetailView):
     model = CatalogueBook
     template_name = "home/cataloguebook_detail.html"
-    fields = ['name', 'genre', 'publication_date', 'author', 'description', 'comment']
+    fields = ['name', 'genre', 'publication_date', 'author', 'description', 'comment','imagen']
 
 
 class CatalogueBookCreateView(LoginRequiredMixin, CreateView):
     model = CatalogueBook
+    form_class = CatalogueBookForm
     success_url = reverse_lazy('home:home-list')
-    fields = ['name', 'genre', 'publication_date', 'author', 'description']
 
 
 class CatalogueBookUpdateView(LoginRequiredMixin, UpdateView):
     model = CatalogueBook
+    form_class = CatalogueBookForm
     success_url = reverse_lazy('home:home-list')
-    fields = ['name', 'genre', 'publication_date', 'author', 'description']
 
 
 class CatalogueBookDeleteView(LoginRequiredMixin, DeleteView):

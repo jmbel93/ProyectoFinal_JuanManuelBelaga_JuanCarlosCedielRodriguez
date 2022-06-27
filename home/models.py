@@ -9,6 +9,8 @@ class CatalogueBook(models.Model):
     author = models.CharField(max_length=40)
     publication_date = models.DateField(null=True, blank=True)
     description = RichTextField(blank = True, null=True)
+    imagen = models.ImageField(upload_to='images_book',null=True,blank=True,verbose_name="image")
+
   
 
 

@@ -5,11 +5,12 @@
 <h2>Detalles del comentario:</h2>
 <hr></hr>
 <p><h3>Título del comentario: {{ object.titulo_del_comentario }}</h3></p>
-<p><h4>Fecha del comentario: {{ object.comment_date }}</h4></p>
-<p><h4>Autor del comentario: {{ object.autor_del_comentario }}</h4></p>
-<p><h4>Libro comentado: {{ object.libro_comentado }}</h4></p>
+<p><strong> Fecha del comentario:</strong>  {{ object.comment_date }}</p>
+<p><strong> Autor del comentario:</strong> {{ object.autor_del_comentario }}</p>
+<p><strong> Libro comentado:</strong> {{ object.libro_comentado }}</p>
 
 <h4>Comentario:</h4>
 <p>{{ object.comentario | safe }}</p>
-<p><a class="btn2 btn-primary" href="{% url 'comment:comment-list' %}">Regresar al portal de comentarios</a></p>
+<a class="btn btn-primary" href="{% url 'comment:comment-list' %}"><i class="fas fa-undo"></i> Regresar al portal de comentarios</a>
 {% endblock %}
+
